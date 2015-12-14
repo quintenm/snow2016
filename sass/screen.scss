@@ -1,0 +1,238 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import "compass/reset";
+@import "normalize";
+@import "settings";
+@import url(https://fonts.googleapis.com/css?family=Great+Vibes);
+
+body {
+  font-family: "Helvetica Neue", "Verdana", "Arial", Sans-serif;
+  font-size: 20px;
+  background-color: $background;
+  line-height: 1.6em;
+  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-backface-visibility: hidden;
+  position: relative;
+  //overflow:hidden;
+}
+
+canvas, .regio {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.textregio {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  .inner {
+    display: table-cell;
+    vertical-align: middle;
+    left: 0%;
+    right: 0%;
+    position: absolute;
+    &-welcomtext h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 11em;
+      color: $titleColor;
+      text-shadow: $titleShadow;
+      line-height: initial;
+      @media screen and (max-width: $ultraScreen) {
+        font-size: 7em;
+      }
+      @media screen and (max-width: $mediumScreen) {
+        font-size: 4.9em;
+      }
+      @media screen and (max-width: $smallScreen) {
+        font-size: 3.4em;
+      }
+    }
+    &-welcomtext hr {
+      padding: 0;
+      border: none;
+      height: 0;
+      width: 80%;
+      border-top: $border-width solid $titleColor;
+      text-shadow: $titleShadow;
+      @media screen and (max-width: $ultraScreen) {
+        width: 70%;
+      }
+      @media screen and (max-width: $mediumScreen) {
+        width: 50%;
+      }
+      @media screen and (max-width: $smallScreen) {
+        fwidth: 30%;
+      }
+    }
+    &-scrolltext {
+      text-align: center;
+      padding: 10px;
+      font-size: 2em;
+      line-height: 1.3em;
+      color: $titleColor;
+      @media screen and (max-width: $mediumScreen) {
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  display: table-cell;
+  vertical-align: middle;
+  #information {
+    position: fixed;
+    z-index: 5;
+    top: $buttonInformation;
+    right: $buttonInformation;
+    width: $buttonInformation * 3;
+    height: auto;
+    display: block;
+    .button {
+      opacity: .3;
+      -webkit-transition: opacity $overAllSpeed ease;
+      -moz-transition: opacity $overAllSpeed ease;
+      -ms-transition: opacity $overAllSpeed ease;
+      -o-transition: opacity $overAllSpeed ease;
+      transition: opacity $overAllSpeed ease;
+      z-index: 6;
+      position: absolute;
+    }
+    .informationfield {
+      visibility: hidden;
+      opacity: 0;
+      text-align: center;
+      width: 100%;
+      right: 0;
+      top: 0;
+      z-index: 5;
+      position: absolute;
+      position: fixed;
+      background-color: $titleColor;
+      min-height: 30px;
+      padding: $buttonInformation;
+      box-sizing: border-box;
+      -webkit-transition: opacity $overAllSpeed ease;
+      -moz-transition: opacity $overAllSpeed ease;
+      -ms-transition: opacity $overAllSpeed ease;
+      -o-transition: opacity $overAllSpeed ease;
+      transition: opacity $overAllSpeed ease;
+      pointer-events: none;
+
+    }
+    &.active {
+      .button {
+        opacity: 1;
+        path {
+          fill: $background;
+        }
+      }
+      .informationfield {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#keepOnScroll {
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  vertical-align: center;
+  margin: auto;
+  z-index: 6;
+  position: fixed;
+  color: $titleColor;
+  font-size: 2em;
+  line-height: 1.2em;
+  text-align: center;
+  border: $border-width solid $titleColor;
+  height: 300px;
+  width: 300px;
+  padding: calc(#{$buttonInformation} * 5);
+  -webkit-transition: opacity $overAllSpeed ease;
+  -moz-transition: opacity $overAllSpeed ease;
+  -ms-transition: opacity $overAllSpeed ease;
+  -o-transition: opacity $overAllSpeed ease;
+  transition: opacity $overAllSpeed ease;
+  pointer-events: none;
+  &.active {
+    opacity: 1;
+  }
+}
+
+#createSpace {
+  height: $totalHeight;
+}
+
+#snowBorder {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  bottom: -120px;
+  left: 0;
+  right: 0;
+  //    background-color:$titleColor;
+  background-image: url("../img/snowGround.svg");
+  background-size: 800px 120px;
+  background-repeat: repeat no-repeat;
+  z-index: 3;
+  &::before, &::after {
+    bottom: 12px;
+    content: " ";
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    opacity: 0;
+    -webkit-transition: opacity $overAllSpeed;
+    -moz-transition: opacity $overAllSpeed;
+    -ms-transition: opacity $overAllSpeed;
+    -o-transition: opacity $overAllSpeed;
+    transition: opacity $overAllSpeed;
+
+  }
+  span.sociallinks {
+    color: $titleColor;
+    z-index: 9;
+    position: relative;
+    top: -50px;
+    opacity: 0;
+    &.showFull, &.showFull {
+      opacity: 1 !important;
+    }
+    a, a:link, a:hover, a:visited, a:active {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+  &::before {
+    background-image: url(../img/trees.svg);
+    background-position-y: 50%;
+    background-position-x: -44%;
+    background-repeat: repeat no-repeat;
+
+  }
+  &.showFull::before, &.showFull::after {
+    opacity: 1 !important;
+  }
+}
+
+.regio {
+  left: 0;
+  right: 0;
+  text-align: center;
+  overflow-y: scroll;
+  position: absolute;
+}
