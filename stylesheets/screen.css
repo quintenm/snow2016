@@ -705,7 +705,7 @@ canvas, .regio {
 
 /* line 176, ../sass/screen.scss */
 #createSpace {
-  height: 2000000px;
+  height: 70000px;
 }
 
 /* line 180, ../sass/screen.scss */
@@ -755,16 +755,17 @@ canvas, .regio {
 /* line 220, ../sass/screen.scss */
 #snowBorder::before {
   background-image: url(../img/trees.svg);
+  left: 0;
   background-position-y: 50%;
   background-position-x: -44%;
   background-repeat: repeat no-repeat;
 }
-/* line 227, ../sass/screen.scss */
+/* line 228, ../sass/screen.scss */
 #snowBorder.showFull::before, #snowBorder.showFull::after {
   opacity: 1 !important;
 }
 
-/* line 232, ../sass/screen.scss */
+/* line 233, ../sass/screen.scss */
 .regio {
   left: 0;
   right: 0;

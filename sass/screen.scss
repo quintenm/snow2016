@@ -219,6 +219,7 @@ canvas, .regio {
   }
   &::before {
     background-image: url(../img/trees.svg);
+    left:0;
     background-position-y: 50%;
     background-position-x: -44%;
     background-repeat: repeat no-repeat;
